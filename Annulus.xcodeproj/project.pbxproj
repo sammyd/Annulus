@@ -1,0 +1,297 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		229D4FE9163B1A1500EFBD28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229D4FE8163B1A1500EFBD28 /* UIKit.framework */; };
+		229D4FEB163B1A1500EFBD28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229D4FEA163B1A1500EFBD28 /* Foundation.framework */; };
+		229D4FED163B1A1500EFBD28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229D4FEC163B1A1500EFBD28 /* CoreGraphics.framework */; };
+		229D4FF3163B1A1500EFBD28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 229D4FF1163B1A1500EFBD28 /* InfoPlist.strings */; };
+		229D4FF5163B1A1500EFBD28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4FF4163B1A1500EFBD28 /* main.m */; };
+		229D4FF9163B1A1500EFBD28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D4FF8163B1A1500EFBD28 /* AppDelegate.m */; };
+		229D4FFB163B1A1500EFBD28 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 229D4FFA163B1A1500EFBD28 /* Default.png */; };
+		229D4FFD163B1A1500EFBD28 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 229D4FFC163B1A1500EFBD28 /* Default@2x.png */; };
+		229D4FFF163B1A1500EFBD28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 229D4FFE163B1A1500EFBD28 /* Default-568h@2x.png */; };
+		229D5002163B1A1500EFBD28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D5001163B1A1500EFBD28 /* ViewController.m */; };
+		229D5005163B1A1500EFBD28 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229D5003163B1A1500EFBD28 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		229D4FE4163B1A1500EFBD28 /* Annulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Annulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		229D4FE8163B1A1500EFBD28 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		229D4FEA163B1A1500EFBD28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		229D4FEC163B1A1500EFBD28 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		229D4FF0163B1A1500EFBD28 /* Annulus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Annulus-Info.plist"; sourceTree = "<group>"; };
+		229D4FF2163B1A1500EFBD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		229D4FF4163B1A1500EFBD28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		229D4FF6163B1A1500EFBD28 /* Annulus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Annulus-Prefix.pch"; sourceTree = "<group>"; };
+		229D4FF7163B1A1500EFBD28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		229D4FF8163B1A1500EFBD28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		229D4FFA163B1A1500EFBD28 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		229D4FFC163B1A1500EFBD28 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		229D4FFE163B1A1500EFBD28 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		229D5000163B1A1500EFBD28 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		229D5001163B1A1500EFBD28 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		229D5004163B1A1500EFBD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		229D4FE1163B1A1500EFBD28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229D4FE9163B1A1500EFBD28 /* UIKit.framework in Frameworks */,
+				229D4FEB163B1A1500EFBD28 /* Foundation.framework in Frameworks */,
+				229D4FED163B1A1500EFBD28 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		229D4FD9163B1A1500EFBD28 = {
+			isa = PBXGroup;
+			children = (
+				229D4FEE163B1A1500EFBD28 /* Annulus */,
+				229D4FE7163B1A1500EFBD28 /* Frameworks */,
+				229D4FE5163B1A1500EFBD28 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		229D4FE5163B1A1500EFBD28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				229D4FE4163B1A1500EFBD28 /* Annulus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		229D4FE7163B1A1500EFBD28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				229D4FE8163B1A1500EFBD28 /* UIKit.framework */,
+				229D4FEA163B1A1500EFBD28 /* Foundation.framework */,
+				229D4FEC163B1A1500EFBD28 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		229D4FEE163B1A1500EFBD28 /* Annulus */ = {
+			isa = PBXGroup;
+			children = (
+				229D4FF7163B1A1500EFBD28 /* AppDelegate.h */,
+				229D4FF8163B1A1500EFBD28 /* AppDelegate.m */,
+				229D5000163B1A1500EFBD28 /* ViewController.h */,
+				229D5001163B1A1500EFBD28 /* ViewController.m */,
+				229D5003163B1A1500EFBD28 /* ViewController.xib */,
+				229D4FEF163B1A1500EFBD28 /* Supporting Files */,
+			);
+			path = Annulus;
+			sourceTree = "<group>";
+		};
+		229D4FEF163B1A1500EFBD28 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				229D4FF0163B1A1500EFBD28 /* Annulus-Info.plist */,
+				229D4FF1163B1A1500EFBD28 /* InfoPlist.strings */,
+				229D4FF4163B1A1500EFBD28 /* main.m */,
+				229D4FF6163B1A1500EFBD28 /* Annulus-Prefix.pch */,
+				229D4FFA163B1A1500EFBD28 /* Default.png */,
+				229D4FFC163B1A1500EFBD28 /* Default@2x.png */,
+				229D4FFE163B1A1500EFBD28 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		229D4FE3163B1A1500EFBD28 /* Annulus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 229D5008163B1A1500EFBD28 /* Build configuration list for PBXNativeTarget "Annulus" */;
+			buildPhases = (
+				229D4FE0163B1A1500EFBD28 /* Sources */,
+				229D4FE1163B1A1500EFBD28 /* Frameworks */,
+				229D4FE2163B1A1500EFBD28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Annulus;
+			productName = Annulus;
+			productReference = 229D4FE4163B1A1500EFBD28 /* Annulus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		229D4FDB163B1A1500EFBD28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = VisualPutty;
+			};
+			buildConfigurationList = 229D4FDE163B1A1500EFBD28 /* Build configuration list for PBXProject "Annulus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 229D4FD9163B1A1500EFBD28;
+			productRefGroup = 229D4FE5163B1A1500EFBD28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				229D4FE3163B1A1500EFBD28 /* Annulus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		229D4FE2163B1A1500EFBD28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229D4FF3163B1A1500EFBD28 /* InfoPlist.strings in Resources */,
+				229D4FFB163B1A1500EFBD28 /* Default.png in Resources */,
+				229D4FFD163B1A1500EFBD28 /* Default@2x.png in Resources */,
+				229D4FFF163B1A1500EFBD28 /* Default-568h@2x.png in Resources */,
+				229D5005163B1A1500EFBD28 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		229D4FE0163B1A1500EFBD28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229D4FF5163B1A1500EFBD28 /* main.m in Sources */,
+				229D4FF9163B1A1500EFBD28 /* AppDelegate.m in Sources */,
+				229D5002163B1A1500EFBD28 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		229D4FF1163B1A1500EFBD28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				229D4FF2163B1A1500EFBD28 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		229D5003163B1A1500EFBD28 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				229D5004163B1A1500EFBD28 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		229D5006163B1A1500EFBD28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		229D5007163B1A1500EFBD28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		229D5009163B1A1500EFBD28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Annulus/Annulus-Prefix.pch";
+				INFOPLIST_FILE = "Annulus/Annulus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		229D500A163B1A1500EFBD28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Annulus/Annulus-Prefix.pch";
+				INFOPLIST_FILE = "Annulus/Annulus-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		229D4FDE163B1A1500EFBD28 /* Build configuration list for PBXProject "Annulus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229D5006163B1A1500EFBD28 /* Debug */,
+				229D5007163B1A1500EFBD28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		229D5008163B1A1500EFBD28 /* Build configuration list for PBXNativeTarget "Annulus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229D5009163B1A1500EFBD28 /* Debug */,
+				229D500A163B1A1500EFBD28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 229D4FDB163B1A1500EFBD28 /* Project object */;
+}
