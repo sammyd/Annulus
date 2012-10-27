@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  Ring.h
 //  Annulus
 //
 //  Created by Sam Davies on 26/10/2012.
@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Ring.h"
+@interface Ring : UIView
 
-@interface ViewController : UIViewController {
-    Ring *ring;
-    NSTimer *timer;
-}
+@property (nonatomic, assign) CGFloat startAngle;
+@property (nonatomic, assign) CGFloat endAngle;
 
 @end

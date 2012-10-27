@@ -18,6 +18,7 @@
 		229D4FFF163B1A1500EFBD28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 229D4FFE163B1A1500EFBD28 /* Default-568h@2x.png */; };
 		229D5002163B1A1500EFBD28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D5001163B1A1500EFBD28 /* ViewController.m */; };
 		229D5005163B1A1500EFBD28 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229D5003163B1A1500EFBD28 /* ViewController.xib */; };
+		229D500D163B1AA700EFBD28 /* Ring.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D500C163B1AA700EFBD28 /* Ring.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		229D5000163B1A1500EFBD28 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		229D5001163B1A1500EFBD28 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		229D5004163B1A1500EFBD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		229D500B163B1AA700EFBD28 /* Ring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ring.h; sourceTree = "<group>"; };
+		229D500C163B1AA700EFBD28 /* Ring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ring.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				229D5001163B1A1500EFBD28 /* ViewController.m */,
 				229D5003163B1A1500EFBD28 /* ViewController.xib */,
 				229D4FEF163B1A1500EFBD28 /* Supporting Files */,
+				229D500B163B1AA700EFBD28 /* Ring.h */,
+				229D500C163B1AA700EFBD28 /* Ring.m */,
 			);
 			path = Annulus;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				229D4FF5163B1A1500EFBD28 /* main.m in Sources */,
 				229D4FF9163B1A1500EFBD28 /* AppDelegate.m in Sources */,
 				229D5002163B1A1500EFBD28 /* ViewController.m in Sources */,
+				229D500D163B1AA700EFBD28 /* Ring.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

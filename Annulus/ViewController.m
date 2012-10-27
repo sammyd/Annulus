@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+
+@interface ViewController () {
+    CGFloat currentValue;
+}
 
 @end
 
@@ -18,6 +21,32 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    ring = [[Ring alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(progressTimer) userInfo:nil repeats:YES];
+    currentValue = 0;
+    [self.view addSubview:ring];
+}
+
+- (void)progressTimer
+{
+    if(currentValue >= 1) {
+        currentValue = 0.02;
+    } else {
+        currentValue += 0.02;
+    }
+    
+    ring.startAngle = (currentValue - 0.3) * M_PI * 2;
+    ring.endAngle = (currentValue + 0.3) * M_PI * 2;
+    [ring setNeedsDisplay];
+}
+
+- (void)dealloc
+{
+    [ring release];
+    [timer invalidate];
+    timer = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
