@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface ViewController () {
@@ -22,10 +23,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    ring = [[Ring alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
+    ring = [[Ring alloc] init];
+    ringHolder = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    ring.backgroundLayer.frame = ringHolder.bounds;
+    [ring.backgroundLayer setNeedsDisplay];
+    ring.foregroundLayer.frame = ringHolder.bounds;
+    [ring.foregroundLayer setNeedsDisplay];
+    [ringHolder.layer addSublayer:ring.backgroundLayer];
+    [ringHolder.layer addSublayer:ring.foregroundLayer];
+    
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(progressTimer) userInfo:nil repeats:YES];
     currentValue = 0;
-    [self.view addSubview:ring];
+    [self.view addSubview:ringHolder];
 }
 
 - (void)progressTimer
@@ -38,21 +47,16 @@
     
     ring.startAngle = (currentValue - 0.3) * M_PI * 2;
     ring.endAngle = (currentValue + 0.3) * M_PI * 2;
-    [ring setNeedsDisplay];
+    [ring updateSegment];
 }
 
 - (void)dealloc
 {
     [ring release];
+    [ringHolder release];
     [timer invalidate];
     timer = nil;
     [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -7,44 +7,50 @@
 //
 
 #import "Ring.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation Ring
 
 @synthesize startAngle = _startAngle;
 @synthesize endAngle = _endAngle;
+@synthesize foregroundLayer = _foregroundLayer;
+@synthesize backgroundLayer = _backgroundLayer;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundLayer = [CALayer layer];
+        self.backgroundLayer.delegate = self;
+        self.foregroundLayer = [CALayer layer];
+        self.foregroundLayer.delegate = self;
+        
+        currentSegmentAngle = 0;
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)dealloc
 {
-    // Drawing code
-    [self drawBackgroundAnnulusInRect:rect];
-    [self drawForegroundSegmentInRect:rect];
-
+    [_foregroundLayer release];
+    [_backgroundLayer release];
+    [super dealloc];
 }
 
 
-- (void)drawForegroundSegmentInRect:(CGRect)rect
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
+- (void)drawForegroundSegmentInContext:(CGContextRef)context
+{    
     CGColorSpaceRef colorSpace  = CGColorSpaceCreateDeviceRGB();
     
     CGContextSaveGState(context);
     {
-        CGFloat bigLineThickness = MIN(rect.size.width,rect.size.height)/5; // NB: copy/pasted from other method
+        CGFloat bigLineThickness = MIN(self.foregroundLayer.bounds.size.width,self.foregroundLayer.bounds.size.height)/5; // NB: copy/pasted from other method
         CGFloat lineThickness = bigLineThickness - 4;
         
-        CGPoint centre = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
-        CGFloat radius = MIN(self.bounds.size.height, self.bounds.size.width) / 2 - bigLineThickness / 2;
+        CGPoint centre = CGPointMake(self.foregroundLayer.bounds.size.width / 2, self.foregroundLayer.bounds.size.height / 2);
+        CGFloat radius = MIN(self.foregroundLayer.bounds.size.height, self.foregroundLayer.bounds.size.width) / 2 - bigLineThickness / 2;
         UIBezierPath *segment = [UIBezierPath bezierPathWithArcCenter:centre radius:radius startAngle:self.startAngle endAngle:self.endAngle clockwise:YES];
         
         CGContextSaveGState(context);
@@ -57,7 +63,7 @@
             // Let's change it from a single line to an outline
             CGContextReplacePathWithStrokedPath(context);
             
-            [[UIColor colorWithRed:0.1 green:0.6 blue:0.9 alpha:1] set];
+            CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.1 green:0.6 blue:0.9 alpha:1].CGColor);
             
             // So now we can fill with this. Magic.
             CGContextFillPath(context);
@@ -101,7 +107,7 @@
             // Let's change it from a single line to an outline
             CGContextReplacePathWithStrokedPath(context);
             
-            CGContextAddRect(context, rect);
+            CGContextAddRect(context, self.foregroundLayer.bounds);
             
             // I think we should now try using it as a mask
             CGContextEOClip(context);
@@ -132,65 +138,91 @@
 }
 
 
-- (void)drawBackgroundAnnulusInRect:(CGRect)rect
+- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)layerContext
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSaveGState(context);
+    if (layer == self.foregroundLayer) {
+        [self drawForegroundSegmentInContext:layerContext];
+    } else if(layer == self.backgroundLayer) {
+        [self drawBackgroundLayerInContext:layerContext];
+    }
+}
+
+- (void)drawBackgroundLayerInContext:(CGContextRef)layerContext
+{
+    CGContextSaveGState(layerContext);
     {
-        CGFloat lineThickness = MIN(rect.size.width,rect.size.height)/5;
+        CGFloat lineThickness = MIN(self.backgroundLayer.bounds.size.width, self.backgroundLayer.bounds.size.height)/5;
         CGFloat shadowDepth = lineThickness * 0.5;
         
-        CGPoint centre = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
-        CGFloat radius = MIN(self.bounds.size.height, self.bounds.size.width) / 2 - lineThickness / 2;
+        CGPoint centre = CGPointMake(self.backgroundLayer.bounds.size.width / 2, self.backgroundLayer.bounds.size.height / 2);
+        CGFloat radius = MIN(self.backgroundLayer.bounds.size.height, self.backgroundLayer.bounds.size.width) / 2 - lineThickness / 2;
         UIBezierPath *ring = [UIBezierPath bezierPathWithArcCenter:centre radius:radius startAngle:0 endAngle:M_PI*2 clockwise:YES];
         
-        [[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1] set];
-        
-        ring.lineWidth = lineThickness;
-        
-        [ring stroke];
+        // Stroke the ring
+        CGContextSaveGState(layerContext);
+        CGFloat greyColour[4] = {0.3, 0.3, 0.3, 1.0};
+        CGContextSetStrokeColor(layerContext, greyColour);
+        CGContextAddPath(layerContext, ring.CGPath);
+        CGContextSetLineWidth(layerContext, lineThickness);
+        CGContextStrokePath(layerContext);
+        CGContextRestoreGState(layerContext);
         
         
         // Inner shadow
-        CGContextSaveGState(context);
+        CGContextSaveGState(layerContext);
         UIBezierPath *mask = [UIBezierPath bezierPathWithArcCenter:centre radius:(radius - lineThickness/2) startAngle:0 endAngle:M_PI*2 clockwise:YES];
         
-        CGRect boundingRect = CGRectMake(-2 * shadowDepth, -2 * shadowDepth, rect.size.width + 4 * shadowDepth, rect.size.height + 4 * shadowDepth);
+        CGRect boundingRect = CGRectMake(-2 * shadowDepth, -2 * shadowDepth, self.backgroundLayer.bounds.size.width + 4 * shadowDepth, self.backgroundLayer.bounds.size.height + 4 * shadowDepth);
         
-        CGContextAddRect(context, boundingRect);
-        CGContextAddPath(context, mask.CGPath);
-        CGContextEOClip(context);
+        CGContextAddRect(layerContext, boundingRect);
+        CGContextAddPath(layerContext, mask.CGPath);
+        CGContextEOClip(layerContext);
         
         ring = [UIBezierPath bezierPathWithArcCenter:centre radius:(radius - lineThickness/2 - 2) startAngle:0 endAngle:M_PI*2 clockwise:YES];
-        [[UIColor blackColor] setFill];
-        CGContextAddPath(context, ring.CGPath);
-        CGContextSetShadowWithColor(context, CGSizeMake(0, 0), shadowDepth, [UIColor blackColor].CGColor);
-        CGContextSetBlendMode (context, kCGBlendModeNormal);
-        CGContextFillPath(context);
-        CGContextRestoreGState(context);
+        CGContextSetFillColorWithColor(layerContext, [UIColor blackColor].CGColor);
+        CGContextAddPath(layerContext, ring.CGPath);
+        CGContextSetShadowWithColor(layerContext, CGSizeMake(0, 0), shadowDepth, [UIColor blackColor].CGColor);
+        CGContextSetBlendMode (layerContext, kCGBlendModeNormal);
+        CGContextFillPath(layerContext);
+        CGContextRestoreGState(layerContext);
         
         
         // Outer shadow
-        CGContextSaveGState(context);
+        CGContextSaveGState(layerContext);
         mask = [UIBezierPath bezierPathWithArcCenter:centre radius:(radius + lineThickness/2) startAngle:0 endAngle:M_PI*2 clockwise:YES];
-        CGContextAddPath(context, mask.CGPath);
-        CGContextEOClip(context);
+        CGContextAddPath(layerContext, mask.CGPath);
+        CGContextEOClip(layerContext);
         
-        CGContextAddRect(context, boundingRect);
+        CGContextAddRect(layerContext, boundingRect);
         
         ring = [UIBezierPath bezierPathWithArcCenter:centre radius:(radius + lineThickness/2 + 2) startAngle:0 endAngle:M_PI*2 clockwise:YES];
-        [[UIColor blackColor] setFill];
-        CGContextAddPath(context, ring.CGPath);
-        CGContextSetShadowWithColor(context, CGSizeMake(0, 0), shadowDepth, [UIColor blackColor].CGColor);
-        CGContextSetBlendMode (context, kCGBlendModeNormal);
-        CGContextEOFillPath(context);
-        CGContextRestoreGState(context);
+        CGContextSetFillColorWithColor(layerContext, [UIColor blackColor].CGColor);
+        CGContextAddPath(layerContext, ring.CGPath);
+        CGContextSetShadowWithColor(layerContext, CGSizeMake(0, 0), shadowDepth, [UIColor blackColor].CGColor);
+        CGContextSetBlendMode (layerContext, kCGBlendModeNormal);
+        CGContextEOFillPath(layerContext);
+        CGContextRestoreGState(layerContext);
         
         
     }
-    CGContextRestoreGState(context);
+    CGContextRestoreGState(layerContext);
 }
 
+- (void)updateSegment
+{
+    CGFloat newRequestedAngle = ABS(self.endAngle - self.startAngle);
+    CGFloat rotationRequired = self.startAngle;
+    self.startAngle = 0;
+    self.endAngle = newRequestedAngle;
+    if(ABS(newRequestedAngle - currentSegmentAngle) > 0.01) {
+        // So we've been asked for a new angle - we'll have to redraw
+        [self.foregroundLayer setNeedsDisplay];
+    }
+    
+    // Now let's rotate the foreground layer
+    self.foregroundLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMakeRotation(rotationRequired));
+    // And make sure we save off the current segment angle for next time
+    currentSegmentAngle = ABS(self.endAngle - self.startAngle);
+}
 
 @end

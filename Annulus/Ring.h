@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Ring : UIView
+@interface Ring : NSObject {
+    CGFloat currentSegmentAngle;
+}
 
 @property (nonatomic, assign) CGFloat startAngle;
 @property (nonatomic, assign) CGFloat endAngle;
+@property (nonatomic, retain) CALayer *foregroundLayer;
+@property (nonatomic, retain) CALayer *backgroundLayer;
+
+- (void)updateSegment;
 
 @end

@@ -19,6 +19,7 @@
 		229D5002163B1A1500EFBD28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D5001163B1A1500EFBD28 /* ViewController.m */; };
 		229D5005163B1A1500EFBD28 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229D5003163B1A1500EFBD28 /* ViewController.xib */; };
 		229D500D163B1AA700EFBD28 /* Ring.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D500C163B1AA700EFBD28 /* Ring.m */; };
+		22FADCCE16406B0A0009E709 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FADCCD16406B0A0009E709 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		229D5004163B1A1500EFBD28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		229D500B163B1AA700EFBD28 /* Ring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ring.h; sourceTree = "<group>"; };
 		229D500C163B1AA700EFBD28 /* Ring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ring.m; sourceTree = "<group>"; };
+		22FADCCD16406B0A0009E709 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FADCCE16406B0A0009E709 /* QuartzCore.framework in Frameworks */,
 				229D4FE9163B1A1500EFBD28 /* UIKit.framework in Frameworks */,
 				229D4FEB163B1A1500EFBD28 /* Foundation.framework in Frameworks */,
 				229D4FED163B1A1500EFBD28 /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +79,7 @@
 		229D4FE7163B1A1500EFBD28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22FADCCD16406B0A0009E709 /* QuartzCore.framework */,
 				229D4FE8163B1A1500EFBD28 /* UIKit.framework */,
 				229D4FEA163B1A1500EFBD28 /* Foundation.framework */,
 				229D4FEC163B1A1500EFBD28 /* CoreGraphics.framework */,
@@ -296,6 +300,7 @@
 				229D500A163B1A1500EFBD28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

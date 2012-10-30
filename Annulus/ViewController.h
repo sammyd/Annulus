@@ -12,6 +12,7 @@
 
 @interface ViewController : UIViewController {
     Ring *ring;
+    UIView *ringHolder;
     NSTimer *timer;
 }
 
