@@ -12,8 +12,10 @@
 
 @interface ViewController : UIViewController {
     Ring *ring;
+    NSMutableArray *progressRings;
     UIView *ringHolder;
     NSTimer *timer;
+    CADisplayLink *displayLink;
 }
 
 @end

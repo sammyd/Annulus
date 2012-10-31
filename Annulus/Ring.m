@@ -217,12 +217,16 @@
     if(ABS(newRequestedAngle - currentSegmentAngle) > 0.01) {
         // So we've been asked for a new angle - we'll have to redraw
         [self.foregroundLayer setNeedsDisplay];
+        // And make sure we save off the current segment angle for next time
+        currentSegmentAngle = ABS(self.endAngle - self.startAngle);
     }
     
     // Now let's rotate the foreground layer
-    self.foregroundLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMakeRotation(rotationRequired));
-    // And make sure we save off the current segment angle for next time
-    currentSegmentAngle = ABS(self.endAngle - self.startAngle);
+    // We wrap this in a transaction so we can disable the implicit animations
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    [self.foregroundLayer setAffineTransform:CGAffineTransformMakeRotation(rotationRequired)];
+    [CATransaction commit];
 }
 
 @end
